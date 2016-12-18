@@ -154,7 +154,7 @@ def get_crt(account_key, csr, acme_dir, log=LOGGER, CA=DEFAULT_CA, challenge_typ
                 if challenge_type == 'http-01':
                     os.remove(wellknown_path)
                 elif challenge_type == 'dns-01':
-                    subprocess.check_call([hook, "deploy_challenge", domain, token, _b64(hashlib.sha256(keyauthorization.encode('utf8')).digest())]),
+                    subprocess.check_call([hook, "clean_challenge", domain, token, _b64(hashlib.sha256(keyauthorization.encode('utf8')).digest())]),
 
                 break
             else:
